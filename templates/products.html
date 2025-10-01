@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Products Page</h1>
+<p> There are {{products_list|length}} products in inventory right now.
+    <ul>
+            {% for item in products_list %}
+            <li> {{item}}</li>
+            {% endfor %}
+    </ul>
+
+{% endblock %}
