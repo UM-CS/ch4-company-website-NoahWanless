@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<header>
+    <title>Blog test?</title>
+    <link rel = "stylesheet" href = "{% static 'css/base.css' %}">
+</header>
+<body>
+    <h1>Messages Homepage with fancier posts and styling with CSS</h1>
+    <ul>
+        {%for post in post_list%}
+        <li>{{post.title}}, {{post.author}}, {{post.body}}</li>
+        <!--<li><a href = "{% url 'post_detail' post.pk %}">{{post.title}}</a> </li>-->
+        <li><a href = "{{post.get_absolute_url}}">{{post.title}}</a> </li>
+    <!-- goes gets the og url path and tells it that that we are throughing in the primary key of this element of the database-->
+        {%endfor%}
+    </ul>
+</body>
+
+
+{% endblock %}
